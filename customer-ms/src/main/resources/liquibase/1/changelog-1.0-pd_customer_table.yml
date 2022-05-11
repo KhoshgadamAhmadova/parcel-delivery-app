@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create pd_customer table
+      author: Khoshgadam Ahmadova
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: pd_customer
+            columns:
+              - column:
+                  name: customer_id
+                  type: number
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: varchar2(30)
+                  constraints:
+                    unique: true
+                    nullable: true
+              - column:
+                  name: first_name
+                  type: varchar2(100)
+              - column:
+                  name: last_name
+                  type: varchar2(100)
+              - column:
+                  name: email
+                  type: varchar2(320)
+              - column:
+                  - name: phone_number
+                  - type: varchar2(30)
+              - column:
+                  name: created_date
+                  type: date
+              - column:
+                  name: modified_date
+                  type: date
+
+
+  - changeSet:
+      id: Create pd_customer_seq sequence
+      author: Khoshgadam Ahmadova
+      changes:
+        - createSequence:
+            sequenceName: pd_customer_seq

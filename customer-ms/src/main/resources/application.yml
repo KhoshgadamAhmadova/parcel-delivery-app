@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /customer-ms
+
+spring:
+  application:
+    name: customer-ms
+
+  datasource:
+    url: jdbc:postgresql://delivery-db:5432/delivery
+    username: pduser
+    password: pduserpass
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        default_schema: public
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/changelog-master.yml
+    drop-first: false
+    default-schema: public
+    database-change-log-table: MS_PD_CUSTOMER_DBCHANGELOG
+    database-change-log-lock-table: MS_PD_CUSTOMER_DBCHANGELOGLOCK
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 120000
+        loggerLevel: full
+
+logging.level.com.guava.customerms.client: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+
+feignclient:
+  auth-ms: http://localhost:8080/auth-ms/users
+

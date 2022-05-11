@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create pd_order table
+      author: Khoshgadam Ahmadova
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: pd_order
+            columns:
+              - column:
+                  name: order_id
+                  type: varchar2(36)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: varchar2(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: pickup_city
+                  type: varchar2(250)
+              - column:
+                  name: pickup_address
+                  type: varchar2(250)
+              - column:
+                  name: pickup_coordinates
+                  type: varchar2(250)
+              - column:
+                  name: pickup_contact_phone
+                  type: varchar2(30)
+              - column:
+                  name: delivery_city
+                  type: varchar2(250)
+              - column:
+                  name: delivery_address
+                  type: varchar2(250)
+              - column:
+                  name: delivery_coordinates
+                  type: varchar2(250)
+              - column:
+                  name: delivery_contact_phone
+                  type: varchar2(30)
+              - column:
+                  name: status
+                  type: varchar2(30)
+              - column:
+                  name: couirier_user_id
+                  type: varchar2(30)
+              - column:
+                  name: created_date
+                  type: date
+              - column:
+                  name: modified_date
+                  type: date

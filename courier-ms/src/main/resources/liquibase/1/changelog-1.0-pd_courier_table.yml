@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create pd_courier table
+      author: Khoshgadam Ahmadova
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: pd_courier
+            columns:
+              - column:
+                  name: courier_id
+                  type: number
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: varchar2(30)
+                  constraints:
+                    unique: true
+                    nullable: true
+              - column:
+                  name: courier_type
+                  type: varchar2(50)
+              - column:
+                  name: first_name
+                  type: varchar2(250)
+              - column:
+                  name: last_name
+                  type: varchar2(250)
+              - column:
+                  name: email
+                  type: varchar2(320)
+              - column:
+                  - name: phone_number
+                  - type: varchar2(30)
+              - column:
+                  - name: status
+                  - type: varchar2(30)
+              - column:
+                  name: created_date
+                  type: date
+              - column:
+                  name: modified_date
+                  type: date
+
+
+  - changeSet:
+      id: Create pd_courier_seq sequence
+      author: Khoshgadam Ahmadova
+      changes:
+        - createSequence:
+            sequenceName: pd_courier_seq

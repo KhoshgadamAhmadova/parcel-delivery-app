@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create pd_user table
+      author: Khoshgadam Ahmadova
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: pd_user
+            columns:
+              - column:
+                  name: id
+                  type: number
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_name
+                  type: varchar2(30)
+                  constraints:
+                    unique: true
+                    nullable: true
+              - column:
+                  name: passcode
+                  type: varchar2(250)
+              - column:
+                  name: role
+                  type: varchar2(100)
+              - column:
+                  name: status
+                  type: varchar2(20)
+              - column:
+                  name: created_date
+                  type: date
+              - column:
+                  name: modified_date
+                  type: date
+
+  - changeSet:
+      id: Create pd_user_seq sequence
+      author: Khoshgadam Ahmadova
+      changes:
+        - createSequence:
+            sequenceName: pd_user_seq
